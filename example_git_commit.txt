@@ -1,0 +1,18 @@
+# Vou criar um arquivo no diretório atual... O arquivo vai se chamar <bold>exemplo.txt</bold>.
+#
+enter
+### exemplo.txt
+Arquivo de exemplo com 3 linhas:
+Linha 0
+Linha 1
+Linha 2
+###
+#
+# Vamos ver se o arquivo que foi criado...
+#
+run_auto ls
+#
+# Agora, vamos ver o status do git com o comando
+# <white><bold>git status</bold></white>
+#
+run git status$
