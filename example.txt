@@ -1,0 +1,35 @@
+!checkfile .git
+
+#
+# <bold><green>[Introdução]</green></bold>
+#
+# Bem-vindo! Vamos explorar o git na linha de comando! :)
+# Para isso, é preciso que você execute alguns comandos.
+#
+## Vamos iniciar agora com o git. Existem duas maneiras de inicializar um repositório. A primeira é através do comando:
+##
+## <bold><white>git init</white></bold>
+##
+## Execute agora o comando indicado acima.
+#
+run git init$
+checkfile .git
+#
+# Parabéns! Seu diretório foi inicializado.
+#
+# Vou criar um arquivo no diretório atual... O arquivo vai se chamar <bold>exemplo.txt</bold>.
+#
+enter
+### exemplo.txt
+Arquivo de exemplo com 3 linhas:
+Linha 0
+Linha 1
+Linha 2
+###
+#
+# Vamos ver o arquivo que foi criado...
+#
+run_auto ls
+#
+# Agora é preciso criar o arquivo...
+run_free 
