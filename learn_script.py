@@ -97,10 +97,10 @@ for line in script:
 
     if command == '!checkfile':  # checkfile not exists
         if not checkfile(content, False):
-            break
+            exit(1)
     if command == 'checkfile':  # checkfile
         if not checkfile(content):
-            break
+            exit(1)
     if command == '##':
         ansiprint(content)
         help_txt.append(content)
@@ -110,12 +110,12 @@ for line in script:
         enter()
     if command == 'run_free':
         if not run_command(content, free=True):
-            break
+            exit(1)
     if command == 'run':
         if not run_command(content):
-            break
+            exit(1)
     if command == 'run_auto':
         if not run_command(content, auto=True):
-            break
+            exit(1)
     if command == '###':
         processing = content
