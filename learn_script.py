@@ -9,9 +9,9 @@ import argparse
 try:
     from ansimarkup import parse, ansiprint
 except:
+    ansiprint = lambda x: print(re.sub("<.*?>", "", x))
 
-    def ansiprint(x):
-        return print(re.sub("<.*?>", "", x))
+help_txt = []
 
 
 def checkfile(content, exists=True):
@@ -37,8 +37,7 @@ def prompt():
 
 
 def query_user(content):
-    def fancy_input():
-        return prompt() or input()
+    fancy_input = lambda: prompt() or input()
 
     user_input = fancy_input()
     while not user_input:
@@ -142,7 +141,7 @@ def process(script):
             processing = content
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Run Tutorterminal application.")
 
     parser.add_argument(
@@ -150,16 +149,34 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    num_scripts = len(args.files)
+
+    files = args.files
+
+    invalid_files = list(
+        filter(lambda x: x[0], map(lambda x: (not os.path.isfile(x), x), files))
+    )
+
+    if invalid_files:
+        for _, fname in invalid_files:
+            files.remove(fname)
+            ansiprint(
+                "<red>Warning - '{}' not found!</red>\n\n".format(fname), end="",
+            )
+
+    num_scripts = len(files)
 
     for index in range(num_scripts):
 
-        file = args.files[index]
+        file = files[index]
 
         ansiprint(
-            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>\n".format(
+            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>\n\n".format(
                 index + 1, num_scripts, file
             ),
             end="",
         )
         process(open(file).readlines())
+
+
+if __name__ == "__main__":
+    main()
