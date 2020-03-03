@@ -3,15 +3,14 @@ import os
 import re
 import shlex
 import subprocess
-import sys
 import argparse
 
 try:
-    from ansimarkup import parse, ansiprint
-except:
+    from ansimarkup import ansiprint
+except ImportError:
     colors = {
-        'yellow_bold': '\033[33;1m', 
-        'white': '\033[37m', 
+        'yellow_bold': '\033[33;1m',
+        'white': '\033[37m',
         'yellow': '\033[33m',
         'green': '\033[32m',
         'reset': '\033[0;0m'
@@ -82,27 +81,26 @@ def run_command(content, free=False, auto=False):
         prompt()
         ansiprint(content)
     else:
-        user_input = query_user(content)
+        user_input = shlex.split(query_user(content))
     output = "<bold><red>[Out]</red></bold> "
-    if free:
-        process = subprocess.Popen(user_input, shell=True)
-    else:
-        process = subprocess.Popen(
-            shlex.split(user_input),
-            shell=False,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-        )
-        process.stdin.write(user_input.encode("utf-8") + b"\n")
+    err = "<bold><red>[ERR]</red></bold> "
+    with subprocess.Popen(user_input,
+                            shell=True,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                        ) as process:
         for line in process.stdout.readlines():
             ansiprint(output + line.decode("utf-8"), end="")
-    process.wait()
-    if process.returncode != 0:
-        ansiprint(
-            "Algo parece ter dado errado... procure por ajuda ou verifique os comandos executados."
-        )
-        return False
-    return True
+        for line in process.stderr.readlines():
+            ansiprint(err + line.decode("utf-8"), end="")
+        process.wait()
+        if process.returncode != 0:
+            ansiprint(
+                "Algo parece ter dado errado... procure por ajuda ou verifique os comandos executados."
+            )
+            return False
+        return True
 
 
 def process(script):
@@ -113,7 +111,9 @@ def process(script):
     for line in script:
         if processing:
             if line.strip() == "###":
-                open(processing, "w").write(tmp_processing)
+                f_open = open(processing, "w")
+                f_open.write(tmp_processing)
+                f_open.close()
                 processing = ""
                 tmp_processing = []
             tmp_processing += line
@@ -163,7 +163,6 @@ def main():
     )
 
     args = parser.parse_args()
-
     files = args.files
 
     invalid_files = list(
@@ -180,15 +179,14 @@ def main():
     num_scripts = len(files)
 
     for index in range(num_scripts):
-
-        file = files[index]
-
+        f_name = files[index]
         ansiprint(
             "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>".format(
-                index + 1, num_scripts, file
+                index + 1, num_scripts, f_name
             )
         )
-        process(open(file).readlines())
+        with open(f_name) as f:
+            process(f.readlines())
 
 
 if __name__ == "__main__":
