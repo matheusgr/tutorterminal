@@ -28,8 +28,6 @@ except:
     print(warn)
     ansiprint = lambda x: print(re.sub("<.*?>", "", x))
 
-help_txt = []
-
 
 def checkfile(content, exists=True):
     if exists ^ os.path.exists(content):
@@ -140,7 +138,6 @@ def process(script):
                 exit(1)
         if command == "##":
             ansiprint(content)
-            help_txt.append(content)
         if command == "#":
             ansiprint(content)
         if command == "enter":
