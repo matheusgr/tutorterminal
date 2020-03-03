@@ -1,7 +1,4 @@
-#
-##
-
-# Vou criar um arquivo no diretório atual... <bold>O arquivo vai se chamar <y>exemplo.txt</y></bold>.
+# <bold>-> Vou criar um arquivo no diretório atual... O arquivo vai se chamar <y>exemplo.txt</y></bold>.
 #
 enter
 ### exemplo.txt
@@ -11,24 +8,24 @@ Linha 1
 Linha 2
 ###
 
-# Vamos ver se o arquivo que foi criado... 
+# <bold>-> Vamos ver se o arquivo que foi criado... </bold> 
 run_auto ls
 
-# Agora, vamos ver o status do git com o comando: <bold> <bg #00005f>git status</bg #00005f> </bold>
+# <bold>-> Agora, vamos ver o status do git com o comando: <bg #00005f>git status</bg #00005f> </bold>
 run git status$
 
-# Observe que o arquivo <bold>exemplo.txt</bold> ainda não foi adicionado às mudanças a serem enviadas
-# Para adiciona-lo, é preciso executar o comando:<bold> <bg #00005f>git add .</bg #00005f> </bold>
+# <bold>-> Observe que o arquivo <y>exemplo.txt</y> ainda não foi adicionado às mudanças a serem enviadas </bold>
+# <bold>-> Para adiciona-lo, é preciso executar o comando: <bg #00005f>git add .</bg #00005f> </bold>
 run git add .$
 
-# Ótimo, vamos checar a situação atual de novo, execute:<bold> <bg #00005f>git status</bg #00005f> </bold>
+# <bold>-> Ótimo, vamos checar a situação atual de novo, execute: <bg #00005f>git status</bg #00005f> </bold>
 run git status$
 
-# Perceba que o arquivo exemplo.txt foi adicionado ao Index. 
-# Agora ele esta presente em "Changes to be committed":
+# <bold>-> Perceba que o arquivo exemplo.txt foi adicionado ao Index. </bold>
+# <bold>-> Agora ele esta presente em "Changes to be committed"</bold>:
 # >>> OBS: Index é apenas um lugar temporário que guarda as mudanças que você adicionar
 
-# O próximo passo, será confirmar as mudanças feitas através do comando:<bold><bg #00005f> git commit -m "Adiciona exemplo.txt"</bg #00005f></bold>
+# <bold>-> O próximo passo, será confirmar as mudanças feitas através do comando: <bg #00005f> git commit -m "Adiciona exemplo.txt"</bg #00005f></bold>
 run git commit -m "Adiciona exemplo.txt"$
 
 ##
