@@ -9,6 +9,23 @@ import argparse
 try:
     from ansimarkup import parse, ansiprint
 except:
+    colors = {
+        'yellow_bold': '\033[33;1m', 
+        'white': '\033[37m', 
+        'yellow': '\033[33m',
+        'green': '\033[32m',
+        'reset': '\033[0;0m'
+    }
+
+    warn = (
+        f"{colors['yellow_bold']}Oh no!\n"
+        f"It looks you don't have {colors['white']}ansimarkup{colors['yellow']} installed.\n"
+        f"This will not prevent the execution of the {colors['white']}tutorterminal{colors['yellow']}, but its installation is recommended.\n"
+        f"To install it, just run the following command: \n"
+        f"{colors['green']}pip install ansimarkup {colors['reset']} \n"
+    )
+
+    print(warn)
     ansiprint = lambda x: print(re.sub("<.*?>", "", x))
 
 help_txt = []
@@ -160,7 +177,7 @@ def main():
         for _, fname in invalid_files:
             files.remove(fname)
             ansiprint(
-                "<red>Warning - '{}' not found!</red>\n\n".format(fname), end="",
+                "<red>Warning - '{}' not found!</red>".format(fname)
             )
 
     num_scripts = len(files)
@@ -170,10 +187,9 @@ def main():
         file = files[index]
 
         ansiprint(
-            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>\n\n".format(
+            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>".format(
                 index + 1, num_scripts, file
-            ),
-            end="",
+            )
         )
         process(open(file).readlines())
 
