@@ -1,4 +1,7 @@
-# Vou criar um arquivo no diretório atual... O arquivo vai se chamar <bold>exemplo.txt</bold>.
+#
+##
+
+# Vou criar um arquivo no diretório atual... <bold>O arquivo vai se chamar <y>exemplo.txt</y></bold>.
 #
 enter
 ### exemplo.txt
@@ -7,12 +10,34 @@ Linha 0
 Linha 1
 Linha 2
 ###
-#
-# Vamos ver se o arquivo que foi criado...
-#
+
+# Vamos ver se o arquivo que foi criado... 
 run_auto ls
-#
-# Agora, vamos ver o status do git com o comando
-# <white><bold>git status</bold></white>
-#
+
+# Agora, vamos ver o status do git com o comando: <bold> <bg #00005f>git status</bg #00005f> </bold>
 run git status$
+
+# Observe que o arquivo <bold>exemplo.txt</bold> ainda não foi adicionado às mudanças a serem enviadas
+# Para adiciona-lo, é preciso executar o comando:<bold> <bg #00005f>git add .</bg #00005f> </bold>
+run git add .$
+
+# Ótimo, vamos checar a situação atual de novo, execute:<bold> <bg #00005f>git status</bg #00005f> </bold>
+run git status$
+
+# Perceba que o arquivo exemplo.txt foi adicionado ao Index. 
+# Agora ele esta presente em "Changes to be committed":
+# >>> OBS: Index é apenas um lugar temporário que guarda as mudanças que você adicionar
+
+# O próximo passo, será confirmar as mudanças feitas através do comando:<bold><bg #00005f> git commit -m "Adiciona exemplo.txt"</bg #00005f></bold>
+run git commit -m "Adiciona exemplo.txt"$
+
+##
+# >>> OBS: Com o "git commit -m 'comentario'", o arquivo é confirmado e enviado para o HEAD, mas ainda permanece apenas no seu computador.
+# <bold><green>[Parabéns, commit feito com sucesso! =)]</green></bold>
+
+enter
+
+# <bold><c> ~ RESUMINHO ~ </c></bold>
+# <bold><m>[GIT STATUS]</m> Comando que mostra o estado atual do repositório local</bold>
+# <bold><m>[GIT ADD]</m> Comando onde você ADICIONA uma mudança </bold>
+# <bold><m>[GIT COMMIT -M]</m> Comando onde você CONFIRMA as mudanças feitas</bold>

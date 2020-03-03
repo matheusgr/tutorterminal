@@ -1,0 +1,27 @@
+!checkfile Tamburetei/
+
+# Dessa vez, vamos aprender como clonar um repositório do github para o seu computador.
+# 
+# Primeiramente, é preciso acessar o repositório do github o qual você queira clonar.
+# Acesse esse link: <fg 86>https://github.com/matheusgr/Tamburetei.git</fg 86>
+
+enter
+# Após acessar o repositório, clique no botão verde <green>"Clone or Download"</green> e copie o link que aparece.
+enter 
+
+# O comando git clone é complementado pelo link do repositório que você deseja clona! (git clone <link_do_repo>)
+# Nesse caso, o comando deve ser: <bold><bg #00005f>git clone https://github.com/matheusgr/Tamburetei.git</bg #00005f></bold>
+run git clone https://github.com/matheusgr/Tamburetei.git$
+
+#
+# Agora, vamos verificar se a clonagem foi bem sucedida..
+checkfile Tamburetei/
+run_auto ls
+#
+# <bold><green>[Parabéns, clonagem feita com sucesso! =)]</green></bold>
+
+enter
+# <bold><c> ~ RESUMINHO ~ </c></bold>
+# <bold><m> 1. Acessar respositorio que quer clonar</m></bold>
+# <bold><m> 2. Copiar link do repositório</m></bold>
+# <bold><m> 3. COMANDO GIT CLONE <link_repo></m>  Comando onde você CLONA o repositorio do link </bold>

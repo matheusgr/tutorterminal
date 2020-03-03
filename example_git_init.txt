@@ -3,16 +3,17 @@
 #
 # <bold><green>[Introdução]</green></bold>
 #
-# Bem-vindo! Vamos explorar o git na linha de comando! :)
+# Bem-vindo! Vamos explorar o git na linha de comando! :) 
 # Para isso, é preciso que você execute alguns comandos.
 #
-## Vamos iniciar agora com o git. Existem duas maneiras de inicializar um repositório. A primeira é através do comando:
-##
-## <bold><white>git init</white></bold>
-##
-## Execute agora o comando indicado acima.
-#
+## Vamos iniciar agora com o git. Existem duas maneiras de inicializar um repositório. A primeira é através do comando: <bg #00005f>git init</bg #00005f></bold>
 run git init$
+
 checkfile .git
-#
-# Parabéns! Seu diretório foi inicializado.
+
+# <bold><green>[Parabéns! Seu diretório foi inicializado. =)]</green></bold>
+
+enter
+
+# <bold><c> ~ RESUMINHO ~ </c></bold>
+# <bold><m>[GIT INIT]</m> Inicia seu diretório</bold>
