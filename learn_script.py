@@ -48,7 +48,8 @@ def prompt():
     ansiprint(
         "<bold><green>[In]</green></bold> <light-blue>"
         + os.path.abspath(".")
-        + "</light-blue>$ "
+        + "</light-blue>$ ",
+        end="",
     )
 
 
@@ -61,7 +62,8 @@ def query_user(content):
         user_input = fancy_input()
     while not re.match(content, user_input):
         ansiprint(
-            "<fg red>Certeza que deseja continuar? A entrada parece ser diferente do indicado.</fg red> <bold>[s/N]</bold> "
+            "<fg red>Certeza que deseja continuar? A entrada parece ser diferente do indicado.</fg red> <bold>[s/N]</bold> ",
+            end="",
         )
         user_test = input()
         if user_test == "n" or not user_test:
@@ -95,7 +97,7 @@ def run_command(content, free=False, auto=False):
         )
         process.stdin.write(user_input.encode("utf-8") + b"\n")
         for line in process.stdout.readlines():
-            ansiprint(output + line.decode("utf-8"))
+            ansiprint(output + line.decode("utf-8"), end="")
     process.wait()
     if process.returncode != 0:
         ansiprint(
@@ -175,7 +177,7 @@ def main():
         for _, fname in invalid_files:
             files.remove(fname)
             ansiprint(
-                "<red>Warning - '{}' not found!</red>\n\n".format(fname)
+                "<red>Warning - '{}' not found!</red>".format(fname)
             )
 
     num_scripts = len(files)
@@ -185,7 +187,7 @@ def main():
         file = files[index]
 
         ansiprint(
-            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>\n\n".format(
+            "<bold><light-blue>Running script [{}/{}] - <yellow>'{}'</yellow></light-blue>".format(
                 index + 1, num_scripts, file
             )
         )
