@@ -94,4 +94,4 @@ Allow user to run any command.
 To run tutorterminal execute: 
 ``` python3 learn_script.py [files] ```
 
-![tutorTerminalGif](https://user-images.githubusercontent.com/38442139/75783766-d79dfe80-5d3f-11ea-97fb-c7efd544261d.gif)
+![tutorTermianlGit](https://user-images.githubusercontent.com/38442139/75818262-4fd3e680-5d77-11ea-830f-7734a4748b59.gif)
