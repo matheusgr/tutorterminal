@@ -6,6 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="tutorterminal-matheusgr",
     version="0.0.1",
+    scripts=["ttterminal"],
     author="Matheus Gaudencio",
     author_email="matheusgr@gmail.com",
     description="A small example package",  # TODO
