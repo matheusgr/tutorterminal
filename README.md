@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/matheusgr/tutorterminal.svg?branch=master)](https://travis-ci.org/matheusgr/tutorterminal)
+
 # Tutorterminal
 
 A tool to create scripts to help and learn command line tools.
