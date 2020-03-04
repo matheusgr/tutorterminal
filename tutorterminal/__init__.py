@@ -8,6 +8,9 @@ import argparse
 try:
     from ansimarkup import ansiprint
 except ImportError:
+    import platform 
+    plt = platform.system()
+
     colors = {
         'yellow_bold': '\033[33;1m',
         'white': '\033[37m',
@@ -15,6 +18,11 @@ except ImportError:
         'green': '\033[32m',
         'reset': '\033[0;0m'
     }
+    
+    if plt == "Windows":
+        for k in colors:
+            colors[k] = ""
+    
 
     warn = (
         f"{colors['yellow_bold']}Oh no!\n"
@@ -25,7 +33,7 @@ except ImportError:
     )
 
     print(warn)
-    ansiprint = lambda x: print(re.sub("<.*?>", "", x))
+    ansiprint = lambda x, end="\n": print(re.sub("<.*?>", "", x), end=end)
 
 
 def checkfile(content, exists=True):
