@@ -91,3 +91,9 @@ Runs an command automatically as an user would (the prompt and command are displ
 run_free
 ```
 Allow user to run any command.
+
+# Running tutorterminal
+To run tutorterminal execute: 
+``` python3 learn_script.py [files] ```
+
+![tutorTermianlGit](https://user-images.githubusercontent.com/38442139/75818262-4fd3e680-5d77-11ea-830f-7734a4748b59.gif)
