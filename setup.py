@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tutorterminal",
-    version="v0.1",
+    version="v0.2",
     scripts=["ttterminal"],
     author="Matheus Gaudencio",
     author_email="matheusgr@gmail.com",
@@ -23,6 +23,9 @@ setuptools.setup(
         "Topic :: Education :: Computer Aided Instruction (CAI)",
         "Topic :: System :: Shells",
         "Intended Audience :: Education",
+    ],
+    install_requires=[
+      'ansimarkup',
     ],
     python_requires='>=3.2',
     test_suite='nose.collector',
