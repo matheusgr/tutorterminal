@@ -1,0 +1,42 @@
+# <bold>-> Esta na hora de aprender como dar push em seus arquivos </bold>
+# 
+# <bold>-> Após executar os commandos de add & commit, as alterações estão salvas localmente.</bold>
+# <bold>-> Agora, o próximo passo é envia-las para o repositório remoto.</bold>
+
+# <bold>-> Execute <bg #00005f>git status</bg #00005f></bold>
+# <bold>-> Verifique que não existe mais nada para commitar. </bold>
+run git status$
+
+# <bold>-> Para enviar o arquivo para o repositório remoto utilize o comando <bg #00005f>git push</bg #00005f></bold>
+# <bold>-> Ou, caso queira especificar o local de destino <bg #00005f>git push -u origin <branch de destino></bg #00005f></bold>
+# >>> OBS: Por padrão, a branch de destino é a master, logo: git push -u origin master
+run_free
+
+# <bold><y>Repositório remoto inexistente</y></bold>
+# <bold>-> Erro ~ fatal: No configured push destination.</bold>
+# <bold>-> Caso isso ocorra, siginifica que o repositório local ainda não esta conectado com o repositório remoto.</bold>
+# <bold>-> Em outras palavras: é preciso conectar o repositório do seu computador, com um repositório remoto correspondente no github.</bold>
+# <bold>-> Para que assim as informações tenham um endereço final de armazenamento.</bold>
+
+enter
+# <bold>-> Dessa forma, o próximo passo é criar um repositório no github que se vai se conectar com o nosso repositório local</bold>
+# <bold>-> Acesse <bg #00005f>github.com/<seu_profile> -> Repositories -> New</bg #00005f> (Crie um repositório vazio).</bold>
+
+enter
+
+# <bold>-> Agora basta conectar os repositórios Local/Remoto com o comando:</bold>
+# <bold><bg #00005f>git remote add origin http://github.com/<seu_profile>/<repositorio></bg #00005f></bold>
+run_free
+
+# <bold>-> Após conectar o repositório, é preciso dar push definindo o destino <bg #00005f>git push -u origin master</bg #00005f></bold>
+# >>> OBS: git push --set-upstream origin master == git push -u origin master.
+run git push -u origin master$
+
+##
+# <bold><green>[Parabéns, clonagem feita com sucesso! =)]</green></bold>
+
+enter
+
+# <bold><c> ~ RESUMINHO ~ </c></bold>
+# <bold><m>[GIT PUSH]</m> Comando onde você ENVIA as alterações para o repositório remoto
+# <bold><m>[GIT REMOTE ADD <link_do_repo>]</m> Conecta os repositórios Local/Remoto</bold>
